@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Faq } from "@/app/components/faq";
 import { ContactForm } from "@/app/components/contat-form";
+import { Footer } from "@/app/components/footer";
 export default function Home() {
   return (
     <>
@@ -85,7 +86,7 @@ export default function Home() {
           <ContactForm />
         </section>
       </main>
-      <footer></footer>
+      <Footer />
     </>
   );
 }
