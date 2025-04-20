@@ -1,21 +1,12 @@
 import Image from "next/image";
+import { Header } from "@/app/components/header";
 import { Faq } from "@/app/components/faq";
 import { ContactForm } from "@/app/components/contat-form";
 import { Footer } from "@/app/components/footer";
 export default function Home() {
   return (
     <>
-      <header className="py-5 flex items-center justify-between w-full max-w-7xl mx-auto px-2 lg:px-0">
-        <Image src="/logo.png" alt="Logo" width={100} height={100} />
-        <nav>
-          <ul className="flex items-center justify-between gap-6 text-xl">
-            <li className="cursor-pointer">Accueil</li>
-            <li className="cursor-pointer">Forum</li>
-            <li className="cursor-pointer">Guides</li>
-            <li className="cursor-pointer">Profile</li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main className="w-full max-w-7xl mx-auto px-2 lg:px-0 mt-20">
         <section className="flex flex-col gap-5 md:flex-row md:items-center mb-20">
           <div>
