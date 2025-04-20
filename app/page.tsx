@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Faq } from "@/app/components/faq";
+import { ContactForm } from "@/app/components/contat-form";
 export default function Home() {
   return (
     <>
@@ -70,13 +71,18 @@ export default function Home() {
             </ul>
           </div>
         </section>
-        <section className="flex flex-col items-center">
+        <section className="flex flex-col items-center mb-20">
           <h2 className="text-4xl lg:text-6xl mb-8 mt-5">FAQ</h2>
           <p className="text-2xl lg:text-4xl mb-8">
             Les questions les plus souvent posées
           </p>
 
           <Faq />
+        </section>
+        <section className="flex flex-col items-center">
+          <h2 className="text-4xl lg:text-6xl mb-8 mt-5">Nous contacter</h2>
+
+          <ContactForm />
         </section>
       </main>
       <footer></footer>
