@@ -33,7 +33,12 @@ export function ContactForm({
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="name">Sujet</Label>
-                <Input id="name" type="text" placeholder="john doe" required />
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Information"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
