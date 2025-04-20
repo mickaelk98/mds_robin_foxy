@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Faq } from "@/app/components/faq";
 export default function Home() {
   return (
     <>
@@ -34,7 +35,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section>
+        <section className="mb-20">
           <h2 className="text-4xl lg:text-6xl mb-20 mt-5">Notre mission</h2>
           <div>
             <ul className="flex flex-col items-center gap-5 md:flex-row">
@@ -68,6 +69,14 @@ export default function Home() {
               </li>
             </ul>
           </div>
+        </section>
+        <section className="flex flex-col items-center">
+          <h2 className="text-4xl lg:text-6xl mb-8 mt-5">FAQ</h2>
+          <p className="text-2xl lg:text-4xl mb-8">
+            Les questions les plus souvent posées
+          </p>
+
+          <Faq />
         </section>
       </main>
       <footer></footer>
