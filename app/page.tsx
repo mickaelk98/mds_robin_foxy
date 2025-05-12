@@ -36,10 +36,10 @@ export default function Home() {
                 <Image src="/enfant.png" alt="Logo" width={100} height={100} />
                 <p className="font-bold">Pour les enfants</p>
                 <p>
-                  Foxy et Robin aide les enfants à comprendre Internet et à s’y
-                  aventurer en toute sécurité. À travers des histoires et des
-                  jeux, ils apprennent à reconnaître les dangers et à adopter
-                  les bons réflexes.
+                  Foxy et Robin aident les enfants à comprendre Internet et à
+                  s’y aventurer en toute sécurité. À travers des histoires et
+                  des jeux, ils apprennent à reconnaître les dangers et à
+                  adopter les bons réflexes.
                 </p>
               </li>
               <li className="flex flex-col items-center gap-2 mb-5">

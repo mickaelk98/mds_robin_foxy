@@ -23,7 +23,7 @@ export function Faq() {
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>
-          Le contenu est-il adapté aux écoles ?
+          Le contenu, est-il adapté aux écoles ?
         </AccordionTrigger>
         <AccordionContent>
           Oui. Des ressources pédagogiques sont disponibles pour les enseignants
@@ -33,7 +33,7 @@ export function Faq() {
       </AccordionItem>
       <AccordionItem value="item-3">
         <AccordionTrigger>
-          Les parents peuvent-ils utiliser le livre seuls avec leurs enfants ?
+          Les parents, peuvent-ils utiliser le livre seul avec leurs enfants ?
         </AccordionTrigger>
         <AccordionContent>
           Absolument. Le livre est pensé pour être lu ensemble, avec des
