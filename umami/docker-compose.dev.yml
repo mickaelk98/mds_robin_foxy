@@ -1,0 +1,30 @@
+services:
+  umami:
+    image: docker.umami.is/umami-software/umami:postgresql-latest
+    ports:
+      - 3001:3000
+    environment:
+      - MODE=environment
+      - DATABASE_TYPE=postgresql
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/umami
+      - UMAMI_SECRET=${UMAMI_SECRET}
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=umami
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    restart: always
+
+volumes:
+  umami-db-data:
+
+networks:
+  default:
+    driver: bridge
