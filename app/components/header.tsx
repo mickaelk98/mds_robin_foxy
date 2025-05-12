@@ -9,15 +9,6 @@ export function Header() {
   return (
     <header className="py-5 flex items-center justify-between w-full max-w-7xl mx-auto px-2 lg:px-0">
       <Image src="/logo.png" alt="Logo" width={100} height={100} />
-      <nav>
-        <ul className="hidden md:flex md:items-center md:justify-between gap-6 text-xl">
-          <li className="cursor-pointer">Accueil</li>
-          <li className="cursor-pointer">Forum</li>
-          <li className="cursor-pointer">Guides</li>
-          <li className="cursor-pointer">Profile</li>
-        </ul>
-      </nav>
-
       <Menu
         className="md:hidden cursor-pointer text-primary"
         size={40}
