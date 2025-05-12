@@ -1,4 +1,17 @@
 services:
+  next:
+    build:
+      context: ./foxy-app
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./nextjs:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - umami
+    restart: unless-stopped
   umami:
     image: docker.umami.is/umami-software/umami:postgresql-latest
     ports:
