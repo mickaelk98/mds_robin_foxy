@@ -8,7 +8,10 @@ export function Header() {
   const [mobileNaveOpen, setMobileNavOpen] = useState(false);
   return (
     <header className="py-5 flex items-center justify-between w-full max-w-7xl mx-auto px-2 lg:px-0">
-      <Image src="/logo.png" alt="Logo" width={100} height={100} />
+      {/* <Image src="/logo.png" alt="Logo" width={100} height={100} /> */}
+      <p className="text-3xl xl:text-5xl font-bold text-primary">
+        Foxy et Robin
+      </p>
       <Menu
         className="md:hidden cursor-pointer text-primary"
         size={40}
