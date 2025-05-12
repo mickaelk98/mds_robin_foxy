@@ -11,11 +11,11 @@ export default function Home() {
         <section className="flex flex-col gap-5 md:flex-row md:items-center mb-20">
           <div>
             <h1 className="text-4xl lg:text-6xl mb-5">
-              Proteger vos enfants sur internet commence ici
+              Protéger vos enfants sur internet commence ici
             </h1>
             <p className="text-xl lg:text-2xl">
-              un livre essentiel pour sensibiliser les enfants et des guide pour
-              aider les parents et enseigants face aux danger du numérique{" "}
+              Un livre essentiel pour sensibiliser les enfants et des guide pour
+              aider les parents et enseigants face aux dangers du numérique{" "}
             </p>
           </div>
           <div className="w-full max-w-[350px]">
