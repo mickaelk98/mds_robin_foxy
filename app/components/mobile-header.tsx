@@ -8,7 +8,7 @@ import logo from "@/app/assets/logo.png";
 import { MobileHeaderNav } from "@/app/components/mobile-header-nav";
 
 export function MobileHeader() {
-  const [navIsOpen, setNavIsOpen] = useState(true);
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   useEffect(() => {
     if (navIsOpen) {
