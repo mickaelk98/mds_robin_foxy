@@ -2,6 +2,7 @@ import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { Welcom } from "@/app/components/welcom";
 import { WhyWe } from "@/app/components/why-we";
+import { Methods } from "@/app/components/methods";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <Welcom />
         <WhyWe />
+        <Methods />
       </main>
       <Footer />
     </>
