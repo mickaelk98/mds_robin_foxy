@@ -44,98 +44,97 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0); /* blanc */
-  --foreground: oklch(0.29 0.05 25); /* #473A35 */
-
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.29 0.05 25);
-
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.29 0.05 25);
-
-  /* Couleur principale #F4981C (orange) */
+  /* Couleurs principales */
+  --background: #f2f2f2;
+  --foreground: #151515;
+  --card: #ffffff;
+  --card-foreground: #151515;
+  --popover: #ffffff;
+  --popover-foreground: #151515;
   --primary: #f4981c;
-  --primary-foreground: oklch(1 0 0); /* blanc pour contraste */
-
-  /* Couleur #575FCC (bleu) pour secondary */
+  --primary-foreground: #ffffff;
   --secondary: #575fcc;
-  --secondary-foreground: oklch(1 0 0); /* blanc pour contraste */
+  --secondary-foreground: #ffffff;
+  --muted: #90d8b5;
+  --muted-foreground: #151515;
+  --accent: #ca78c0;
+  --accent-foreground: #151515;
+  --destructive: #e03131;
+  --destructive-foreground: #ffffff;
+  --border: #d9d9d9;
+  --input: #d9d9d9;
+  --ring: #f4981c;
 
-  /* Utilisation du #CB76BF (rose/violet) pour accent */
-  --accent: #cb76bf;
-  --accent-foreground: oklch(1 0 0); /* blanc pour contraste */
+  /* Couleurs de graphique */
+  --graph-orange: #f4981c;
+  --graph-blue: #575fcc;
+  --graph-green: #90d8b5;
+  --graph-pink: #ca78c0;
 
-  /* #8FD8B5 (vert menthe) pour muted */
-  --muted: #8fd8b5;
-  --muted-foreground: oklch(0.2 0 0); /* foncé pour contraste */
+  /* Couleurs étendues */
+  --orange-100: #ffd9a5;
+  --orange-200: #fec476;
+  --orange-500: #f4981c;
 
-  --destructive: oklch(0.55 0.25 30); /* rouge orangé customisé */
-  --border: oklch(0.85 0 0);
-  --input: oklch(0.95 0 0);
-  --ring: #f4981c; /* orange principal pour le focus */
+  --blue-100: #aae0f4;
+  --blue-200: #478dc7;
+  --blue-500: #575fcc;
 
-  /* Couleurs pour les graphiques */
-  --chart-1: #f4981c; /* orange */
-  --chart-2: #575fcc; /* bleu */
-  --chart-3: #8fd8b5; /* vert menthe */
-  --chart-4: #cb76bf; /* rose/violet */
-  --chart-5: #ffd03b; /* jaune */
+  --green-100: #f3fbe0;
+  --green-200: #bfdc80;
+  --green-500: #90d8b5;
 
-  --sidebar: oklch(0.97 0 0);
-  --sidebar-foreground: oklch(0.29 0.05 25);
-  --sidebar-primary: #f4981c; /* orange principal */
-  --sidebar-primary-foreground: oklch(1 0 0); /* blanc */
-  --sidebar-accent: #575fcc; /* bleu */
-  --sidebar-accent-foreground: oklch(1 0 0); /* blanc */
-  --sidebar-border: oklch(0.85 0 0);
-  --sidebar-ring: #f4981c; /* orange principal */
+  --pink-100: #f9b1f0;
+  --pink-200: #ca78c0;
+
+  --yellow-500: #ffd03b;
 }
 
 .dark {
-  --background: oklch(0.15 0 0);
-  --foreground: oklch(0.98 0 0);
-
-  --card: oklch(0.2 0 0);
-  --card-foreground: oklch(0.98 0 0);
-
-  --popover: oklch(0.2 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-
-  /* Couleurs principales adaptées pour le mode sombre */
-  --primary: #f4981c; /* orange inchangé */
-  --primary-foreground: oklch(0.1 0 0); /* foncé */
-
-  --secondary: #575fcc; /* bleu inchangé */
-  --secondary-foreground: oklch(0.1 0 0); /* foncé */
-
-  --accent: #cb76bf; /* rose/violet inchangé */
-  --accent-foreground: oklch(0.1 0 0); /* foncé */
-
-  /* Vert menthe légèrement plus brillant pour le mode sombre */
-  --muted: #8fd8b5;
-  --muted-foreground: oklch(0.15 0 0); /* très foncé pour contraste */
-
-  --destructive: oklch(0.55 0.25 30);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  /* Couleurs principales */
+  --background: #151515;
+  --foreground: #e6e6e6;
+  --card: #1e1e1e;
+  --card-foreground: #e6e6e6;
+  --popover: #1e1e1e;
+  --popover-foreground: #e6e6e6;
+  --primary: #f4981c;
+  --primary-foreground: #ffffff;
+  --secondary: #575fcc;
+  --secondary-foreground: #ffffff;
+  --muted: #90d8b5;
+  --muted-foreground: #e6e6e6;
+  --accent: #ca78c0;
+  --accent-foreground: #e6e6e6;
+  --destructive: #e03131;
+  --destructive-foreground: #ffffff;
+  --border: #2e2e2e;
+  --input: #2e2e2e;
   --ring: #f4981c;
 
-  /* Couleurs pour les graphiques inchangées */
-  --chart-1: #f4981c;
-  --chart-2: #575fcc;
-  --chart-3: #8fd8b5;
-  --chart-4: #cb76bf;
-  --chart-5: #ffd03b;
+  /* Couleurs de graphique */
+  --graph-orange: #f4981c;
+  --graph-blue: #575fcc;
+  --graph-green: #90d8b5;
+  --graph-pink: #ca78c0;
 
-  --sidebar: oklch(0.2 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: #f4981c;
-  --sidebar-primary-foreground: oklch(0.1 0 0);
-  --sidebar-accent: #575fcc;
-  --sidebar-accent-foreground: oklch(0.1 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: #f4981c;
+  /* Couleurs étendues */
+  --orange-100: #ffd9a5;
+  --orange-200: #fec476;
+  --orange-500: #f4981c;
+
+  --blue-100: #aae0f4;
+  --blue-200: #478dc7;
+  --blue-500: #575fcc;
+
+  --green-100: #f3fbe0;
+  --green-200: #bfdc80;
+  --green-500: #90d8b5;
+
+  --pink-100: #f9b1f0;
+  --pink-200: #ca78c0;
+
+  --yellow-500: #ffd03b;
 }
 
 @layer base {
