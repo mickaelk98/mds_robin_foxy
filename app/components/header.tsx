@@ -1,13 +1,11 @@
 import { MobileHeader } from "@/app/components/mobile-header";
+import { DesktopHeader } from "@/app/components/desktop-header";
 
 export function Header() {
   return (
     <>
       <MobileHeader />
+      <DesktopHeader />
     </>
-    // <header className="py-5 flex items-center justify-between w-full max-w-7xl mx-auto px-2 lg:px-0">
-    //   <Image src="/nav-buble-fiches.svg" alt="Logo" width={200} height={200} />
-    //   <small>Fiches</small>
-    // </header>
   );
 }
