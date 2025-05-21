@@ -16,7 +16,7 @@ export function MobileHeaderNav({ closeNav }: Props) {
   ];
 
   return (
-    <div className="fixed top-0 left-0 bg-[var(--orange-500)] w-full h-screen z-10 lg:hidden">
+    <div className="fixed top-0 left-0 bg-[var(--orange-500)] w-full h-screen z-100 lg:hidden">
       <div>
         <X
           className="absolute top-5 right-5 text-[var(--blue-200)] cursor-pointer"
