@@ -5,7 +5,7 @@ import facebook from "@/app/assets/facebook.png";
 
 export function Footer() {
   return (
-    <footer className="w-full max-w-7xl mx-auto px-2 lg:px-0 translate-y-[-100px]">
+    <footer className="w-full max-w-7xl mx-auto px-2 lg:px-0 translate-y-[-100px] mt-50">
       <div className="w-full flex flex-col md:flex-row mdjustify-between px-4">
         <Image
           src={logo}

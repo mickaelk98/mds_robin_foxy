@@ -5,7 +5,7 @@ import rightArrow from "@/app/assets/right-arrow.png";
 
 export function Testinonials() {
   return (
-    <section className="bg-[var(--green-200)] pt-10 lg:pt-40 pb-25 z-0 translate-y-[-200px] lg:translate-y-[-200px]">
+    <section className="bg-[var(--green-200)] py-30 lg:pt-40 pb-25 z-0 -mt-50">
       <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
         <h2 className="text-3xl xl:text-5xl font-extrabold text-center uppercase">
           ce que vous pensez de nous

@@ -1,7 +1,11 @@
 export function ThirdWave() {
   return (
     <div className="w-full overflow-hidden flex justify-center items-center z-[5] relative">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="translate-y-[-10px]"
+      >
         <path
           fill="#f4981c"
           fill-opacity="1"
