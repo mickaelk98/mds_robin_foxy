@@ -9,7 +9,7 @@ import logo from "@/app/assets/logo.png";
 
 export function DesktopHeader() {
   return (
-    <header className="w-full bg-[var(--green-200)] py-4">
+    <header className="w-full bg-[var(--green-200)] lg:py-12">
       <div className="hidden w-full max-w-7xl mx-auto px-2 lg:px-0 lg:flex lg:items-center lg:justify-between">
         <Image src={logo} alt="logo" className="w-[200px] h-[100px]" />
         <ul className="flex gap-10 text-xl uppercase">
