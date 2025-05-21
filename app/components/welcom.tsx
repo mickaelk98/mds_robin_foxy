@@ -1,7 +1,13 @@
+import { Chewy } from "next/font/google";
 import Image from "next/image";
 import pc from "@/app/assets/pc.png";
 import welcomBuble from "@/app/assets/welcom-buble.png";
 import { FirstWave } from "@/app/components/wave/first-wave";
+
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export function Welcom() {
   return (
@@ -10,7 +16,9 @@ export function Welcom() {
         <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
           <div className="flex items-center justify-center">
             <div className="relative w-1/2">
-              <p className="absolute top-[-10px] left-2 text-lg md:text-4xl font-extrabold bg-background p-1 md:p-2 rounded-2xl uppercase border-2 border-black rotate-[-5deg] lg:text-5xl">
+              <p
+                className={` ${chewy.className} absolute top-[-10px] left-2 text-lg md:text-4xl font-extrabold bg-background p-1 md:p-2 rounded-2xl uppercase border-2 border-black rotate-[-5deg] lg:text-5xl`}
+              >
                 Bienvenue !
               </p>
               <Image src={welcomBuble} alt="bulle" />

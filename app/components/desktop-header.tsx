@@ -1,5 +1,6 @@
 import Image from "next/image";
 import logo from "@/app/assets/logo.png";
+import { Chewy } from "next/font/google";
 // import { File } from "@/app/components/header-items/file";
 // import { Forums } from "@/app/components/header-items/forums";
 // import { Faq } from "@/app/components/header-items/faq";
@@ -7,12 +8,14 @@ import logo from "@/app/assets/logo.png";
 // import { Signup } from "@/app/components/header-items/signup";
 // import { Shops } from "@/app/components/header-items/shops";
 
+const chewy = Chewy({ subsets: ["latin"], weight: ["400"] });
+
 export function DesktopHeader() {
   return (
     <header className="w-full bg-[var(--green-200)] lg:py-12">
-      <div className="hidden w-full max-w-7xl mx-auto px-2 lg:px-0 lg:flex lg:items-center lg:justify-between">
+      <div className="hidden w-full max-w-7xl mx-auto px-2 lg:flex lg:items-center lg:justify-between">
         <Image src={logo} alt="logo" className="w-[200px] h-[100px]" />
-        <ul className="flex gap-10 text-xl uppercase">
+        <ul className={`flex gap-10 text-2xl uppercase ${chewy.className}`}>
           <li className="cursor-pointer border-b-4 border-[var(--green-200)] hover:border-[var(--orange-200)] hover:font-bold">
             Fiches
           </li>

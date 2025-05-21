@@ -4,6 +4,12 @@ import rightArrow from "@/app/assets/right-arrow.png";
 import fileIcon from "@/app/assets/file.png";
 import booksIcon from "@/app/assets/books.png";
 import messageIcon from "@/app/assets/message.png";
+import { Chewy } from "next/font/google";
+
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export function Category() {
   const categories = [
@@ -39,7 +45,9 @@ export function Category() {
     <>
       <section className="bg-[var(--orange-500)] w-full translate-y-[-200px] pb-20 pt-60 -mt-26 z-10">
         <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
-          <h2 className=" absolute top-[50px] mt-60 right-[10px] lg:right-[50px] text-3xl xl:text-5xl rotate-12 font-extrabold bg-white rounded-[60px] p-2 border-2 border-black w-fit">
+          <h2
+            className={`${chewy.className} absolute top-[50px] mt-60 right-[10px] lg:right-[50px] text-3xl xl:text-5xl rotate-12 font-extrabold bg-white rounded-[60px] p-2 border-2 border-black w-fit`}
+          >
             Catégories
           </h2>
           <div className="flex flex-row items-center justify-between xl:gap-4 mt-20">
@@ -55,7 +63,9 @@ export function Category() {
                       height={100}
                       className="absolute top-0 left-[50%] translate-x-[-50%] translate-y-[-50%]"
                     />
-                    <h3 className="text-2xl font-bold mt-10 mb-5 uppercase">
+                    <h3
+                      className={`${chewy.className} text-2xl font-bold mt-10 mb-5 uppercase`}
+                    >
                       {category.title}
                     </h3>
                     {category.text.map((text, index) => (

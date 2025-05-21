@@ -1,6 +1,10 @@
+import { Chewy } from "next/font/google";
+
 type Props = {
   children: React.ReactNode;
 };
+
+const chewy = Chewy({ subsets: ["latin"], weight: ["400"] });
 
 export function MobileNavItem({ children }: Props) {
   return (
@@ -23,7 +27,7 @@ export function MobileNavItem({ children }: Props) {
         fontSize="16"
         fontFamily="Arial"
         fontWeight="bold"
-        className="uppercase"
+        className={`uppercase ${chewy.className} text-xl`}
       >
         {children}
       </text>

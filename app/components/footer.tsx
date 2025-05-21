@@ -2,20 +2,28 @@ import Image from "next/image";
 import logo from "@/app/assets/logo.png";
 import instagram from "@/app/assets/instagram.png";
 import facebook from "@/app/assets/facebook.png";
+import { Chewy } from "next/font/google";
+
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export function Footer() {
   return (
     <footer className="w-full max-w-7xl mx-auto px-2 lg:px-0 translate-y-[-100px] mt-50">
-      <div className="w-full flex flex-col md:flex-row mdjustify-between px-4">
+      <div className="w-full flex flex-col lg:flex-row mdjustify-between px-4">
         <Image
           src={logo}
           alt="logo"
           className="mx-auto mb-10 md:w-[200px] md:h-[100px]"
         />
-        <div className="md:w-[98%] md:flex md:justify-center md:gap-30">
+        <div className="md:w-[98%] lg:flex md:justify-center lg:gap-30">
           {/* debut contact */}
           <div className="mb-20">
-            <h3 className="font-bold uppercase text-2xl xl:text-3xl mb-4 text-center">
+            <h3
+              className={`font-bold uppercase text-2xl xl:text-3xl mb-4 text-center ${chewy.className}`}
+            >
               contact
             </h3>
             <ul className="text-center">
@@ -26,7 +34,9 @@ export function Footer() {
 
           {/* debut reseaux */}
           <div className="mb-20">
-            <h3 className="font-bold uppercase text-2xl xl:text-3xl mb-4 text-center">
+            <h3
+              className={`font-bold uppercase text-2xl xl:text-3xl mb-4 text-center ${chewy.className}`}
+            >
               Réseaux
             </h3>
             <ul className="flex gap-5 md:flex-col items-center justify-center">
@@ -52,7 +62,9 @@ export function Footer() {
 
           {/* debut autre */}
           <div>
-            <h3 className="font-bold uppercase text-2xl xl:text-3xl text-center mb-4">
+            <h3
+              className={`font-bold uppercase text-2xl xl:text-3xl mb-4 text-center ${chewy.className}`}
+            >
               autres
             </h3>
             <ul className="text-center flex flex-col gap-2 text-xl">

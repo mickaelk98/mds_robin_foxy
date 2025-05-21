@@ -2,12 +2,20 @@ import Image from "next/image";
 import robin from "@/app/assets/robin.png";
 import leftArrow from "@/app/assets/left-arrow.png";
 import rightArrow from "@/app/assets/right-arrow.png";
+import { Chewy } from "next/font/google";
+
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export function Testinonials() {
   return (
     <section className="bg-[var(--green-200)] py-30 lg:pt-40 pb-25 z-0 -mt-50">
       <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
-        <h2 className="text-3xl xl:text-5xl font-extrabold text-center uppercase">
+        <h2
+          className={`text-3xl xl:text-5xl font-extrabold text-center uppercase ${chewy.className}`}
+        >
           ce que vous pensez de nous
         </h2>
         <div className="flex items-center justify-between mt-20">

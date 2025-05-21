@@ -1,12 +1,20 @@
 import Image from "next/image";
 import robin from "@/app/assets/robin.png";
 import foxy from "@/app/assets/foxy.png";
+import { Chewy } from "next/font/google";
+
+const chewy = Chewy({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export function WhyWe() {
   return (
     <div className="bg-[var(--green-200)] pt-50 lg:pt-60 pb-25 z-0 translate-y-[-200px]  lg:translate-y-[-300px] mb-30 lg:mb-0 lg:pb-0">
       <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
-        <h2 className="text-3xl xl:text-5xl font-extrabold text-center uppercase">
+        <h2
+          className={`text-3xl xl:text-5xl font-extrabold text-center uppercase ${chewy.className}`}
+        >
           Pourquoi choisir Foxy et Robin ?
         </h2>
         <div className="flex items-start justify-between mt-20">
