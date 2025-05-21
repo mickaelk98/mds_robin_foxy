@@ -36,12 +36,12 @@ export function Category() {
   ];
 
   return (
-    <section className="bg-[var(--orange-500)] w-full translate-y-[-200px] py-20">
+    <section className="bg-[var(--orange-500)] w-full translate-y-[-200px] pb-20 pt-60 -mt-26">
       <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
-        <h2 className=" absolute top-[50px] right-[10px] lg:right-[50px] text-3xl xl:text-5xl rotate-12 font-extrabold bg-white rounded-[60px] p-2 border-2 border-black w-fit">
+        <h2 className=" absolute top-[50px] mt-60 right-[10px] lg:right-[50px] text-3xl xl:text-5xl rotate-12 font-extrabold bg-white rounded-[60px] p-2 border-2 border-black w-fit">
           Catégories
         </h2>
-        <div className="flex flex-row items-center justify-between xl:gap-4">
+        <div className="flex flex-row items-center justify-between xl:gap-4 mt-20">
           <Image src={leftArrow} alt="left-arrow" width={30} height={30} />
           <ul className="mt-20 flex flex-col items-center gap-20 lg:flex-row">
             {categories.map((category, index) => (

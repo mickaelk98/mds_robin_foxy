@@ -1,6 +1,6 @@
 export function SecondWave() {
   return (
-    <div className="w-full overflow-hidden flex justify-center items-center z-[5] relative">
+    <div className="w-full overflow-hidden flex justify-center items-center z-[5] relative -mt-90 lg:-mt-80">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#478dc7"
