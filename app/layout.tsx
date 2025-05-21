@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Foxy et Robin",
-  icons: "/logo.png",
+  icons: "/logo.svg",
   description:
     "Un livre essentiel pour sensibiliser les enfants et des guide pour aider les parents et enseigants face aux danger du numérique",
 };
