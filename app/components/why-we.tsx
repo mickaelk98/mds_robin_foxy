@@ -4,7 +4,7 @@ import foxy from "@/app/assets/foxy.png";
 
 export function WhyWe() {
   return (
-    <div className="bg-[var(--green-200)] pt-10 lg:pt-40 pb-25 z-0 translate-y-[-60px] lg:translate-y-[-100px] mb-30 lg:mb-20">
+    <div className="bg-[var(--green-200)] pt-50 lg:pt-60 pb-25 z-0 translate-y-[-200px]  lg:translate-y-[-300px] mb-30 lg:mb-20">
       <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
         <h2 className="text-3xl xl:text-5xl font-extrabold text-center uppercase">
           Pourquoi choisir Foxy et Robin ?

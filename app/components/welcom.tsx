@@ -1,11 +1,12 @@
 import Image from "next/image";
 import pc from "@/app/assets/pc.png";
 import welcomBuble from "@/app/assets/welcom-buble.png";
+import { FirstWave } from "@/app/components/wave/first-wave";
 
 export function Welcom() {
   return (
     <>
-      <div className="bg-[var(--orange-500)] py-20 w-full relative z-10 translate-y-[-40px]">
+      <div className="bg-[var(--orange-500)] py-20 w-full relative z-10 ">
         <div className="w-full max-w-7xl mx-auto px-2 lg:px-0">
           <div className="flex items-center justify-center">
             <div className="relative w-1/2">
@@ -24,6 +25,7 @@ export function Welcom() {
       </div>
 
       {/* SVG WAVE TRANSITION */}
+      <FirstWave />
       {/* <div className="w-full overflow-hidden flex justify-center items-center z-[5] relative">
         <svg
           width="1280"
