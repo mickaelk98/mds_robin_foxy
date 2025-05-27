@@ -142,6 +142,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-[var(--font-chau-philomene-one)];
+    @apply bg-[var(--green-200)] text-foreground font-[var(--font-chau-philomene-one)];
   }
 }
