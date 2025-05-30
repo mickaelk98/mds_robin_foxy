@@ -1,4 +1,6 @@
-// Enum avec valeurs string (recommandé)
+import type { Models } from "appwrite"
+
+
 export enum UserType {
   USER = "user",
   PROFESSIONAL = "professional",
@@ -7,6 +9,7 @@ export enum UserType {
 // Interface de base commune
 interface BaseUser {
   id?: string;
+  accountId?: string;
   lastname: string;
   firstname: string;
   pseudo: string;
@@ -17,23 +20,43 @@ interface BaseUser {
   updatedAt?: Date;
 }
 
-export interface LoginData extends BaseUser {
+export interface RegisterData extends BaseUser {
   password: string;
   type: UserType;
   profession?: string;
 }
 
-export interface RegisterData {
+export interface LoginData {
   email: string;
   password: string;
 }
 
-export interface RegularUser extends BaseUser {
+export interface RegularUser extends Models.Document {
+  id?: string;
+  accountId?: string;
+  lastname: string;
+  firstname: string;
+  pseudo: string;
+  email: string;
+  phone?: string;
+  isAdmin: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
   type: UserType.USER;
   profession?: never;
 }
 
-export interface ProfessionalUser extends BaseUser {
+export interface ProfessionalUser extends Models.Document {
+  id?: string;
+  accountId?: string;
+  lastname: string;
+  firstname: string;
+  pseudo: string;
+  email: string;
+  phone?: string;
+  isAdmin: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
   type: UserType.PROFESSIONAL;
   profession: string;
 }
