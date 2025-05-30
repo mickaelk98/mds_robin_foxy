@@ -7,7 +7,7 @@ export function FooterSvg() {
     >
       <path
         fill="#f2f2f2"
-        fill-opacity="1"
+        fillOpacity="1"
         d="M0,192L1440,320L1440,320L0,320Z"
       ></path>
     </svg>

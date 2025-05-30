@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GoogleAnalytics from "@/app/components/analytics";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/app/components/auth-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,13 +26,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="fr">
       <head>
         <GoogleAnalytics />
       </head>
       <body className={` ${geistSans.variable} ${geistMono.variable} `}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

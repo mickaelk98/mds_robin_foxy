@@ -7,14 +7,15 @@ export const registerSchema = z
   .object({
     lastname: z.string().min(1, "Nom requis"),
     firstname: z.string().min(1, "Prénom requis"),
-    pseudo: z.string().min(3, "Pseudo minimum 3 caractères"),
+    pseudo: z.string().min(2, "Pseudo minimum 2 caractères"),
     email: z.string().email("Email invalide"),
     phone: z
       .string()
       .regex(
         /^0[1-9][0-9]{8}$/,
         "Numéro invalide (10 chiffres, commence par 0)"
-      ),
+      ).
+      optional(),
     password: z
       .string()
       .min(8, "Mot de passe minimum 8 caractères")
@@ -41,7 +42,13 @@ export const registerSchema = z
 // Schéma pour la connexion
 export const loginSchema = z.object({
   email: z.string().email("Email invalide"),
-  password: z.string().min(1, "Mot de passe requis"),
+  password: z
+    .string()
+    .min(8, "Mot de passe minimum 8 caractères")
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@~#])[A-Za-z\d@~#]+$/,
+      "Mot de passe doit contenir: 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (@~#)"
+    ),
 });
 
 export type RegisterFormData = z.infer<typeof registerSchema>;

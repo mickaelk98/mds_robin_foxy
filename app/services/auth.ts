@@ -1,18 +1,20 @@
 // services/auth.ts
 import { account, ID, databases } from "@/app/lib/appwrite";
 import { Query } from "appwrite";
-import type { RegisterFormData, LoginFormData } from "@/app/schemas/index";
+import type { RegisterFormData, LoginFormData } from "@/app/schemas";
 import type { User, LoginErrorMessage } from "@/app/interfaces";
 
 export const authService = {
   async register(data: RegisterFormData): Promise<User> {
+    const { password, ...dataWithoutPassword } = data;
     try {
       const response = await account.create(
         ID.unique(),
         data.email,
-        data.password,
+        password,
         `${data.firstname} ${data.lastname}`
       );
+
 
       // Typer explicitement comme User
       const userDoc = await databases.createDocument<User>(
@@ -21,7 +23,9 @@ export const authService = {
         ID.unique(),
         {
           accountId: response.$id,
-          ...data,
+          isAdmin: false,
+          password: "",
+          ...dataWithoutPassword,
         },
       );
 
