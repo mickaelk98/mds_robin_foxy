@@ -7,6 +7,7 @@ import { authService } from "@/app/services/auth";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuthStore } from "@/app/lib/stores/auth-store";
+import Link from "next/link";
 
 
 export function LoginForm() {
@@ -46,8 +47,8 @@ export function LoginForm() {
     };
 
     return (
-        <div className="space-y-4">
-            <h2 className="text-xl font-bold mb-4">Connexion</h2>
+        <div className="space-y-4 w-full max-w-[500px] mx-auto">
+            <h2 className="text-xl font-bold mb-4 text-center">Connexion</h2>
 
             {error && (
                 <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
@@ -60,8 +61,8 @@ export function LoginForm() {
                 <input
                     type="email"
                     {...register('email')}
-                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="votre@email.com"
+                    className="w-full border-b border-[var(--border)] outline-none"
+
                 />
                 {errors.email && (
                     <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -73,22 +74,25 @@ export function LoginForm() {
                 <input
                     type="password"
                     {...register('password')}
-                    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="••••••••"
+                    className="w-full border-b border-[var(--border)] outline-none"
+
                 />
                 {errors.password && (
                     <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
                 )}
             </div>
 
-            <button
-                type="submit"
-                disabled={isLoading}
-                onClick={handleSubmit(onSubmit)}
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-                {isLoading ? 'Connexion...' : 'Se connecter'}
-            </button>
+            <div className="flex flex-col gap-4 justify-center items-center w-full">
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={handleSubmit(onSubmit)}
+                    className="w-full max-w-[150px]  bg-[var(--border)] hover:bg-[var(--green-200)] rounded-[20px] py-2 px-4 cursor-pointer"
+                >
+                    {isLoading ? 'Connexion...' : 'Se connecter'}
+                </button>
+                <p >Vous n&apos;avez pas encore de compte ? <span className="font-semibold"><Link href="/signup">Inscrivez vous ici</Link></span></p>
+            </div>
         </div>
     );
 }
