@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
       </head>
-      <body className={` ${geistSans.variable} ${geistMono.variable} `}>
+      <body className={` ${geistSans.variable} ${geistMono.variable} bg-[var(--background)]`}>
         <AuthProvider>
           {children}
         </AuthProvider>
