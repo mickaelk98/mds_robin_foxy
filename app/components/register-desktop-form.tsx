@@ -8,22 +8,24 @@ import { authService } from "@/app/services/auth";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
+import { useUsertypeStore } from "@/app/lib/stores/user-type-store";
 import Link from "next/link";
+import Image from "next/image";
+import proIcon from "@/app/assets/pro-icon.png";
+import otherIcon from "@/app/assets/other-icon.png";
 
 
 export function RegisterDesktopForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>('');
     const [success, setSuccess] = useState<string>('');
-    const [selectedUserType, setSelectedUserType] = useState<UserType>(UserType.USER);
     const router = useRouter();
+    const { userType, changeUserType } = useUsertypeStore();
 
 
     const {
         register,
         handleSubmit,
-        watch,
-        setValue,
         formState: { errors }
     } = useForm<RegisterData>({
         resolver: zodResolver(registerSchema),
@@ -33,19 +35,7 @@ export function RegisterDesktopForm() {
         }
     });
 
-    // Surveiller le type d'utilisateur
-    const userType = watch('type');
 
-    // Gérer le changement de type d'utilisateur
-    const handleUserTypeChange = (type: UserType) => {
-        setSelectedUserType(type);
-        setValue('type', type);
-
-        // Réinitialiser la profession si on repasse en utilisateur normal
-        if (type === UserType.USER) {
-            setValue('profession', undefined);
-        }
-    };
 
     const onSubmit = async (data: RegisterData) => {
         setIsLoading(true);
@@ -69,9 +59,21 @@ export function RegisterDesktopForm() {
     };
 
     return (
-        <>
-            <div className="space-y-4 w-[90%] max-w-[350px] mx-auto hidden md:block">
-                <h2 className="text-2xl uppercase font-bold mb-4 text-center">s&apos;inscrire desktop</h2>
+        <div className="relative bg-white rounded-[50px] p-4 w-[90%] max-w-[900px] mx-auto hidden md:flex my-20">
+            <h2 className="absolute -top-4 left-[75%] translate-x-[-50%] text-2xl uppercase font-bold mb-4 text-center bg-[var(--green-200)] px-4 py-2 border border-white">s&apos;inscrire</h2>
+
+            <div className="flex items-center">
+                <div className="flex flex-col items-center justify-center">
+                    <Image src={proIcon} alt="icon pro" width={250} height={200} />
+                    <button className={`font-bold cursor-pointer ${userType === UserType.PROFESSIONAL ? "bg-[var(--green-200)] py-2 px-2 rounded-[10px]" : ""}`} onClick={() => changeUserType()}>Professionnel</button>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                    <Image src={otherIcon} alt="icon autre" width={200} height={200} />
+                    <button className={`font-bold cursor-pointer ${userType === UserType.USER ? "bg-[var(--green-200)] py-2 px-2 rounded-[10px]" : ""}`} onClick={() => changeUserType()}>Autre</button>
+                </div>
+            </div>
+
+            <div className="space-y-4 w-[70%]">
 
                 {error && (
                     <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
@@ -85,33 +87,7 @@ export function RegisterDesktopForm() {
                     </div>
                 )}
 
-                {/* Type d'utilisateur */}
-                {/* <div>
-                    <label className="block text-sm font-medium mb-2">Type de compte</label>
-                    <div className="flex space-x-2">
-                        <button
-                            type="button"
-                            onClick={() => handleUserTypeChange(UserType.USER)}
-                            className={`flex-1 py-2 px-4 rounded-md border ${selectedUserType === UserType.USER
-                                ? 'bg-blue-600 text-white border-blue-600'
-                                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                                }`}
-                        >
-                            Utilisateur
-                        </button>
-                        <button
-                            type="button"
-                            onClick={() => handleUserTypeChange(UserType.PROFESSIONAL)}
-                            className={`flex-1 py-2 px-4 rounded-md border ${selectedUserType === UserType.PROFESSIONAL
-                                ? 'bg-blue-600 text-white border-blue-600'
-                                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
-                                }`}
-                        >
-                            Professionnel
-                        </button>
-                    </div>
-                    <input type="hidden" {...register('type')} />
-                </div> */}
+
 
                 {/* Informations personnelles */}
                 <div className="flex flex-col gap-4">
@@ -181,9 +157,9 @@ export function RegisterDesktopForm() {
                 </div>
 
                 {/* Champ profession conditionnel */}
-                {selectedUserType === UserType.PROFESSIONAL && (
+                {userType === UserType.PROFESSIONAL && (
                     <div>
-                        <label className="block text-sm font-medium mb-1">Profession *</label>
+                        <label className="block text-sm font-medium mb-1">Profession </label>
                         <input
                             type="text"
                             {...register('profession')}
@@ -227,6 +203,6 @@ export function RegisterDesktopForm() {
                     <p >Vous avez déjà un compte ? <span className="font-semibold"><Link href="/login">Connectez-vous ici</Link></span></p>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
