@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { regionInfo } from "@/app/data/region";
 import { shops } from "@/app/data/shop";
 import { Shop } from "@/app/interfaces/shop";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerClose } from "@/app/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerClose } from "@/app/components/ui/drawer";
 
 export function Map() {
     const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);

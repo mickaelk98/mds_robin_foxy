@@ -1,7 +1,6 @@
 "use client";
 
 import { registerSchema } from "@/app/schemas/user"
-import { RegisterData, } from "@/app/interfaces"
 import { UserType } from "@/app/interfaces/user";
 import { useState } from "react";
 import { authService } from "@/app/services/auth";
@@ -10,7 +9,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useUsertypeStore } from "@/app/lib/stores/user-type-store";
 import Link from "next/link";
+import { RegisterFormData } from "@/app/schemas/user";
 
+function getErrorMessage(error: unknown): string {
+    if (error instanceof Error) {
+        return error.message;
+    }
+    if (error && typeof error === 'object' && 'message' in error) {
+        return String(error.message);
+    }
+    return 'Une erreur inattendue s\'est produite';
+}
 
 export function RegisterMobileForm() {
     const [isLoading, setIsLoading] = useState(false);
@@ -19,21 +28,18 @@ export function RegisterMobileForm() {
     const router = useRouter();
     const { userType } = useUsertypeStore();
 
-
     const {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm<RegisterData>({
+    } = useForm<RegisterFormData>({
         resolver: zodResolver(registerSchema),
         defaultValues: {
-            type: UserType.USER,
-            isAdmin: false
+            type: UserType.USER
         }
     });
 
-
-    const onSubmit = async (data: RegisterData) => {
+    const onSubmit = async (data: RegisterFormData) => {
         setIsLoading(true);
         setError('');
         setSuccess('');
@@ -47,29 +53,30 @@ export function RegisterMobileForm() {
             console.log('Utilisateur créé:', user);
             router.push('/login');
 
-        } catch (err: any) {
-            setError(err.message || 'Erreur lors de l\'inscription');
+        } catch (error: unknown) {
+            setError(getErrorMessage(error));
         } finally {
             setIsLoading(false);
         }
     };
 
     return (
-        <>
-            <div className="space-y-4 w-[90%] max-w-[350px] mx-auto md:hidden">
-                <h2 className="text-2xl uppercase font-bold mb-4 text-center">s&apos;inscrire</h2>
+        <div className="space-y-4 w-[90%] max-w-[350px] mx-auto md:hidden">
+            <h2 className="text-2xl uppercase font-bold mb-4 text-center">s&apos;inscrire</h2>
 
-                {error && (
-                    <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-                        {error}
-                    </div>
-                )}
+            {error && (
+                <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                    {error}
+                </div>
+            )}
 
-                {success && (
-                    <div className="p-3 bg-green-100 border border-green-400 text-green-700 rounded">
-                        {success}
-                    </div>
-                )}
+            {success && (
+                <div className="p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                    {success}
+                </div>
+            )}
+
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {/* Informations personnelles */}
                 <div className="flex flex-col gap-4">
                     <div>
@@ -90,7 +97,6 @@ export function RegisterMobileForm() {
                             type="text"
                             {...register('firstname')}
                             className="w-full border-b border-[var(--border)] outline-none"
-
                         />
                         {errors.firstname && (
                             <p className="text-red-500 text-sm mt-1">{errors.firstname.message}</p>
@@ -104,7 +110,6 @@ export function RegisterMobileForm() {
                         type="text"
                         {...register('pseudo')}
                         className="w-full border-b border-[var(--border)] outline-none"
-
                     />
                     {errors.pseudo && (
                         <p className="text-red-500 text-sm mt-1">{errors.pseudo.message}</p>
@@ -117,7 +122,6 @@ export function RegisterMobileForm() {
                         type="email"
                         {...register('email')}
                         className="w-full border-b border-[var(--border)] outline-none"
-
                     />
                     {errors.email && (
                         <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -130,7 +134,6 @@ export function RegisterMobileForm() {
                         type="tel"
                         {...register('phone')}
                         className="w-full border-b border-[var(--border)] outline-none"
-
                     />
                     {errors.phone && (
                         <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
@@ -145,7 +148,6 @@ export function RegisterMobileForm() {
                             type="text"
                             {...register('profession')}
                             className="w-full border-b border-[var(--border)] outline-none"
-
                         />
                         {errors.profession && (
                             <p className="text-red-500 text-sm mt-1">{errors.profession.message}</p>
@@ -159,7 +161,6 @@ export function RegisterMobileForm() {
                         type="password"
                         {...register('password')}
                         className="w-full border-b border-[var(--border)] outline-none"
-
                     />
                     {errors.password && (
                         <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
@@ -169,21 +170,17 @@ export function RegisterMobileForm() {
                     </p>
                 </div>
 
-                {/* Champ isAdmin caché avec valeur par défaut */}
-                <input type="hidden" {...register('isAdmin')} value="false" />
-
                 <div className="flex flex-col gap-4 justify-center items-center">
                     <button
                         type="submit"
                         disabled={isLoading}
-                        onClick={handleSubmit(onSubmit)}
-                        className="w-full max-w-[100px]  bg-[var(--border)] hover:bg-[var(--green-200)] rounded-[20px] py-2 px-4 cursor-pointer"
+                        className="w-full max-w-[100px] bg-[var(--border)] hover:bg-[var(--green-200)] rounded-[20px] py-2 px-4 cursor-pointer"
                     >
                         {isLoading ? 'Inscription...' : 'S\'inscrire'}
                     </button>
-                    <p >Vous avez déjà un compte ? <span className="font-semibold"><Link href="/login">Connectez-vous ici</Link></span></p>
+                    <p>Vous avez déjà un compte ? <span className="font-semibold"><Link href="/login">Connectez-vous ici</Link></span></p>
                 </div>
-            </div>
-        </>
+            </form>
+        </div>
     );
 }

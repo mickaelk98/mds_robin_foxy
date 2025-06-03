@@ -1,7 +1,6 @@
 "use client";
 
 import { registerSchema } from "@/app/schemas/user"
-import { RegisterData, } from "@/app/interfaces"
 import { UserType } from "@/app/interfaces/user";
 import { useState } from "react";
 import { authService } from "@/app/services/auth";
@@ -13,7 +12,18 @@ import Link from "next/link";
 import Image from "next/image";
 import proIcon from "@/app/assets/pro-icon.png";
 import otherIcon from "@/app/assets/other-icon.png";
+import { RegisterFormData } from "@/app/schemas/user";
 
+
+function getErrorMessage(error: unknown): string {
+    if (error instanceof Error) {
+        return error.message;
+    }
+    if (error && typeof error === 'object' && 'message' in error) {
+        return String(error.message);
+    }
+    return 'Une erreur inattendue s\'est produite';
+}
 
 export function RegisterDesktopForm() {
     const [isLoading, setIsLoading] = useState(false);
@@ -22,22 +32,18 @@ export function RegisterDesktopForm() {
     const router = useRouter();
     const { userType, changeUserType } = useUsertypeStore();
 
-
     const {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm<RegisterData>({
+    } = useForm<RegisterFormData>({
         resolver: zodResolver(registerSchema),
         defaultValues: {
-            type: UserType.USER,
-            isAdmin: false
+            type: UserType.USER
         }
     });
 
-
-
-    const onSubmit = async (data: RegisterData) => {
+    const onSubmit = async (data: RegisterFormData) => {
         setIsLoading(true);
         setError('');
         setSuccess('');
@@ -51,8 +57,8 @@ export function RegisterDesktopForm() {
             console.log('Utilisateur créé:', user);
             router.push('/login');
 
-        } catch (err: any) {
-            setError(err.message || 'Erreur lors de l\'inscription');
+        } catch (error: unknown) {
+            setError(getErrorMessage(error) || 'Erreur lors de l\'inscription');
         } finally {
             setIsLoading(false);
         }
@@ -187,9 +193,6 @@ export function RegisterDesktopForm() {
                         Minimum 8 caractères avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (@~#)
                     </p>
                 </div>
-
-                {/* Champ isAdmin caché avec valeur par défaut */}
-                <input type="hidden" {...register('isAdmin')} value="false" />
 
                 <div className="flex flex-col gap-4 justify-center items-center">
                     <button

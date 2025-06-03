@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuthStore } from "@/app/lib/stores/auth-store";
 import Link from "next/link";
-
+import getErrorMessage from "@/app/lib/error-handler";
 
 export function LoginForm() {
     const [isLoading, setIsLoading] = useState(false);
@@ -39,8 +39,8 @@ export function LoginForm() {
                 setUser(result);
 
             }
-        } catch (err: any) {
-            setError(err.message || 'Erreur de connexion');
+        } catch (err: unknown) {
+            setError(getErrorMessage(err) || 'Erreur de connexion');
         } finally {
             setIsLoading(false);
         }

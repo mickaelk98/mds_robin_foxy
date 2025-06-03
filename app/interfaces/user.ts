@@ -20,6 +20,17 @@ interface BaseUser {
   updatedAt?: Date;
 }
 
+export interface UpdateUserFormData {
+  firstname: string;
+  lastname: string;
+  pseudo: string;
+  password: string;
+  email: string;
+  phone?: string;
+  type: UserType;
+  profession?: string; // Pour les professionnels
+}
+
 export interface RegisterData extends BaseUser {
   password: string;
   type: UserType;

@@ -9,7 +9,8 @@ import type { User } from '@/app/interfaces/user';
 import { useRouter } from 'next/navigation';
 
 export default function Profil() {
-    const { user, setUser, logout } = useAuthStore();
+    const { setUser, logout } = useAuthStore();
+    const user = useAuthStore((state) => state.user);
     const [editMode, setEditMode] = useState(false);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
     const [form, setForm] = useState<User | null>(user);
@@ -34,6 +35,7 @@ export default function Profil() {
 
     const handleSave = async () => {
         if (form) {
+            console.log("les donnée du form:", form);
             setUser(form);
             setEditMode(false);
             // TODO: Appwrite update user
@@ -147,6 +149,17 @@ export default function Profil() {
                                         />
                                     </div>
                                 )}
+
+                                <div>
+                                    <label className="block text-sm mb-1 text-muted-foreground" htmlFor="password">Mot de passe</label>
+                                    <Input
+                                        type='password'
+                                        id="password"
+                                        value={form?.password || ''}
+                                        onChange={e => setForm({ ...form!, password: e.target.value })}
+                                    />
+                                </div>
+
                                 {form?.type === 'professional' && 'profession' in form && (
                                     <div>
                                         <label className="block text-sm mb-1 text-muted-foreground" htmlFor="profession">Profession</label>
