@@ -4,12 +4,17 @@ import { useState } from 'react';
 import { Button } from '@/app/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/app/components/ui/dialog';
 import { Input } from '@/app/components/ui/input';
-import { useAuthStore } from '@/app/lib/stores/auth-store';
 import type { User } from '@/app/interfaces/user';
 import { useRouter } from 'next/navigation';
+import { usersService } from '@/app/services/users';
+import { authService } from '@/app/services/auth';
+import { useAuthStore } from "@/app/lib/stores/auth-store";
+
 
 export default function Profil() {
-    const { setUser, logout } = useAuthStore();
+    const { setUser } = useAuthStore();
+    const { logout } = authService;
+    const { updateUser } = usersService
     const user = useAuthStore((state) => state.user);
     const [editMode, setEditMode] = useState(false);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -18,7 +23,8 @@ export default function Profil() {
 
     // Déconnexion
     const handleLogout = async () => {
-        logout();
+        await logout();
+        setUser(null);
         router.push('/login');
     };
 
@@ -31,14 +37,14 @@ export default function Profil() {
     };
 
     // Modification du profil
-    const handleEdit = () => setEditMode(true);
+    // const handleEdit = () => setEditMode(true);
 
     const handleSave = async () => {
-        if (form) {
+        if (form && user) {
             console.log("les donnée du form:", form);
-            setUser(form);
+            const res = await updateUser(form, user);
+            setUser(res);
             setEditMode(false);
-            // TODO: Appwrite update user
         }
     };
 
@@ -82,12 +88,12 @@ export default function Profil() {
                                 )}
                             </div>
                             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                                <Button variant="outline" onClick={handleEdit} className="flex-1 border-[1.5px] border-[var(--primary)] hover:bg-[var(--orange-100)] transition-colors">
+                                {/* <Button variant="outline" onClick={handleEdit} className="flex-1 border-[1.5px] border-[var(--primary)] hover:bg-[var(--orange-100)] transition-colors">
                                     Modifier
                                 </Button>
                                 <Button variant="destructive" onClick={() => setShowDeleteDialog(true)} className="flex-1 shadow-md">
                                     Supprimer
-                                </Button>
+                                </Button> */}
                                 <Button variant="secondary" onClick={handleLogout} className="flex-1 shadow-md">
                                     Déconnexion
                                 </Button>
@@ -108,7 +114,7 @@ export default function Profil() {
                                         id="firstname"
                                         value={form?.firstname || ''}
                                         onChange={e => setForm({ ...form!, firstname: e.target.value })}
-                                        required
+
                                     />
                                 </div>
                                 <div>
@@ -117,7 +123,7 @@ export default function Profil() {
                                         id="lastname"
                                         value={form?.lastname || ''}
                                         onChange={e => setForm({ ...form!, lastname: e.target.value })}
-                                        required
+
                                     />
                                 </div>
                                 <div>
@@ -126,7 +132,7 @@ export default function Profil() {
                                         id="pseudo"
                                         value={form?.pseudo || ''}
                                         onChange={e => setForm({ ...form!, pseudo: e.target.value })}
-                                        required
+
                                     />
                                 </div>
                                 <div>
@@ -136,7 +142,7 @@ export default function Profil() {
                                         type="email"
                                         value={form?.email || ''}
                                         onChange={e => setForm({ ...form!, email: e.target.value })}
-                                        required
+
                                     />
                                 </div>
                                 {form?.phone !== undefined && (

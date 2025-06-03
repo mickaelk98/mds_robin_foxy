@@ -2,7 +2,6 @@ import { account, ID, databases } from "@/app/lib/appwrite";
 import { Query } from "appwrite";
 import type { RegisterFormData, LoginFormData } from "@/app/schemas";
 import type { User, LoginErrorMessage } from "@/app/interfaces";
-import type { UpdateUserFormData } from "@/app/interfaces/user";
 import { AppwriteException } from "appwrite"
 
 
@@ -108,46 +107,4 @@ export const authService = {
     }
   },
 
-  async updateUser(data: UpdateUserFormData): Promise<User> {
-    try {
-      const DATABASE_ID = "682c1698002f2b240161";
-      const COLLECTION_ID = "683798040029f80115ad";
-
-      await account.updateName(`${data.firstname} ${data.lastname}`);
-      await account.updateEmail(data.email, data.password);
-
-
-      const accountData = await account.get();
-
-
-      const userDocs = await databases.listDocuments<User>(
-        DATABASE_ID,
-        COLLECTION_ID,
-        [Query.equal("accountId", accountData.$id)]
-      );
-      if (userDocs.documents.length === 0) throw new Error("Utilisateur non trouvé");
-
-      const userDoc = userDocs.documents[0];
-
-
-      const updatedUser = await databases.updateDocument<User>(
-        DATABASE_ID,
-        COLLECTION_ID,
-        userDoc.$id,
-        {
-          firstname: data.firstname,
-          lastname: data.lastname,
-          pseudo: data.pseudo,
-          email: data.email,
-          phone: data.phone,
-          type: data.type,
-          ...(data.type === "professional" && { profession: data.profession }),
-        }
-      );
-
-      return updatedUser;
-    } catch (error: unknown) {
-      throw new Error(getErrorMessage(error) || "Erreur lors de la mise à jour du compte");
-    }
-  }
 };

@@ -24,7 +24,7 @@ export interface UpdateUserFormData {
   firstname: string;
   lastname: string;
   pseudo: string;
-  password: string;
+  password?: string;
   email: string;
   phone?: string;
   type: UserType;
