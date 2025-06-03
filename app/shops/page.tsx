@@ -1,78 +1,41 @@
-'use client';
-
-import { useState } from 'react';
-import { regionInfo } from "@/app/data/region";
-import { shops } from "@/app/data/shop";
-import { Shop } from "@/app/interfaces/shop";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerClose } from "@/app/components/ui/drawer";
+import { Map } from "@/app/components/map";
+import { Header } from "@/app/components/header";
+import { Footer } from "@/app/components/footer";
+import Image from "next/image";
+import books from "@/app/assets/books.png"
 
 export default function Shops() {
-    const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
-    const [openDrawer, setOpenDrawer] = useState(false);
-    const [selectedRegion, setSelectedRegion] = useState<{ name: string, boutiques: Shop[] } | null>(null);
 
-    function handleRegionClick(regionId: string) {
-        const regionData = shops.find(region => String(region.id) === String(regionId));
-        const regionInfoData = regionInfo.find(region => region.id === regionId);
-        setSelectedRegion({
-            name: regionInfoData ? regionInfoData.title : "Région inconnue",
-            boutiques: regionData ? regionData.shop : []
-        });
-        setOpenDrawer(true);
-    }
 
     return (
-        <div className="w-full h-full max-h-screen">
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="596.41547"
-                height="584.5448"
-                viewBox="0 0 596.41547 584.5448"
-                className="w-full h-full max-h-screen"
-            >
-                <g>
-                    {regionInfo.map((region) => (
-                        <path
-                            key={region.id}
-                            d={region.d}
-                            aria-label={region.title}
-                            id={region.id}
-                            className={`transition-colors duration-200 cursor-pointer ${hoveredRegion === region.id ? 'fill-blue-500' : 'fill-gray-300'
-                                }`}
-                            onMouseEnter={() => setHoveredRegion(region.id)}
-                            onMouseLeave={() => setHoveredRegion(null)}
-                            onClick={() => handleRegionClick(region.id)}
-                        />
-                    ))}
-                </g>
-            </svg>
-            {/* Drawer affichant les boutiques */}
-            <Drawer open={openDrawer} onOpenChange={setOpenDrawer}>
-                <DrawerContent>
-                    <DrawerHeader>
-                        <DrawerTitle>
-                            {selectedRegion ? selectedRegion.name : "Région"}
-                        </DrawerTitle>
-                        <DrawerDescription>
-                            {selectedRegion && selectedRegion.boutiques.length > 0 ? (
-                                <ul className="mt-4 space-y-4">
-                                    {selectedRegion.boutiques.map((boutique) => (
-                                        <li key={boutique.id} className="p-3 border rounded-xl">
-                                            <strong>{boutique.name}</strong><br />
-                                            {boutique.address}<br />
-                                            <span className="text-xs">{boutique.phone} — {boutique.email}</span><br />
-                                            <span className="text-sm italic">{boutique.opening_hours}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            ) : (
-                                <span>Nous n&apos;avons pas encore de boutiques dans cette région</span>
-                            )}
-                        </DrawerDescription>
-                    </DrawerHeader>
-                    <DrawerClose className="mt-4">Fermer</DrawerClose>
-                </DrawerContent>
-            </Drawer>
-        </div>
+        <>
+            <Header />
+            <div className="bg-[var(--orange-100)] py-20 flex flex-col">
+                <h1 className="uppercase font-bold text-xl lg:text-3xl xl:text-4xl inline-block self-end rotate-12 mr-4 bg-white px-2 py-4 border-2 border-black rounded-[30px]">map interactive</h1>
+                <div className="flex items-center justify-start lg:ml-20">
+                    <Image src={books} alt="magazines" width={100} height={100} className="translate-x-5" />
+                    <p className="uppercase block lg:inline-block text-sm xl:text-xl self-start bg-white px-2 py-4 border-2 border-[var(--orange-200)] rounded-[30px]">OÙ POUVEZ-VOUS TROUVER
+                        NOS MAGAZINES ?</p>
+                </div>
+                {/* <div className="bg-white w-[98%] md:w-[95%] lg:w-[90%] mx-auto border-[10px] md:border-[20px] lg:border-[30px] xl:border-[40px] border-orange-500 rounded-[50px]">
+                    <Map />
+                </div> */}
+                <div className="
+                                custom-gradient-border 
+                                p-[10px] md:p-[20px] lg:p-[30px] xl:p-[40px]
+                                rounded-[50px] 
+                                w-[98%] md:w-[95%] lg:w-[90%] 
+                                mx-auto
+                                flex justify-center items-center
+                                ">
+                    <div className="bg-white rounded-[40px] w-full h-full flex justify-center items-center">
+                        <Map />
+                    </div>
+                </div>
+
+                <p className="uppercase inline-block max-w-[300px] self-end text-sm xl:text-xl text-center -rotate-12 mr-4 bg-white px-2 py-4 border-2 border-black rounded-[30px]">EXPLOREZ LA MAP POUR RETROUVER NOS BOUTIQUES PARTOUT DANS VOTRE VILLE !</p>
+            </div>
+            <Footer />
+        </>
     );
 }

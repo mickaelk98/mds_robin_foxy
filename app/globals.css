@@ -146,3 +146,10 @@
     @apply bg-[var(--green-200)] text-foreground font-[var(--font-chau-philomene-one)];
   }
 }
+
+@layer utilities {
+  .custom-gradient-border {
+    background: linear-gradient(90deg, #FFD9A5 16%, #FFD9A5 62%, #F4981C 100%);
+    border: 5px solid white;
+  }
+}
