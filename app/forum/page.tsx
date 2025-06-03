@@ -7,6 +7,7 @@ import people from "@/app/assets/forum-people.png";
 
 
 
+
 export default async function Forum() {
     const forum = await forumsService.getAllForums();
 
