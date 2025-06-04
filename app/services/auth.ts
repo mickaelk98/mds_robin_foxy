@@ -32,8 +32,8 @@ export const authService = {
 
       // Typer explicitement comme User
       const userDoc = await databases.createDocument<User>(
-        "682c1698002f2b240161",
-        "683798040029f80115ad",
+        `${process.env.APPWRITE_DATABASEID}`,
+        `${process.env.APPWRITE_DATABASE_USERSID}`,
         ID.unique(),
         {
           accountId: response.$id,
@@ -61,8 +61,8 @@ export const authService = {
 
 
       const userDoc = await databases.listDocuments<User>(
-        "682c1698002f2b240161",
-        "683798040029f80115ad",
+        `${process.env.APPWRITE_DATABASEID}`,
+        `${process.env.APPWRITE_DATABASE_USERSID}`,
         [Query.equal('accountId', accountData.$id)]
       );
 
@@ -94,8 +94,8 @@ export const authService = {
 
 
       const userDoc = await databases.listDocuments<User>(
-        "682c1698002f2b240161",
-        "683798040029f80115ad",
+        `${process.env.APPWRITE_DATABASEID}`,
+        `${process.env.APPWRITE_DATABASE_USERSID}`,
         [Query.equal('accountId', accountData.$id)]
       );
 

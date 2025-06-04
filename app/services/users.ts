@@ -20,9 +20,6 @@ function getErrorMessage(error: unknown): string {
 export const usersService = {
     async updateUser(data: UpdateUserFormData, user: User): Promise<User> {
         try {
-            const DATABASE_ID = "682c1698002f2b240161";
-            const COLLECTION_ID = "683798040029f80115ad";
-
             const finalData = {
                 firstname: data.firstname ? data.firstname : user.firstname,
                 lastname: data.lastname ? data.lastname : user.lastname,
@@ -40,8 +37,8 @@ export const usersService = {
             const accountData = await account.get();
 
             const userDocs = await databases.listDocuments<User>(
-                DATABASE_ID,
-                COLLECTION_ID,
+                `${process.env.APPWRITE_DATABASEID}`,
+                `${process.env.APPWRITE_DATABASE_USERSID}`,
                 [Query.equal("accountId", accountData.$id)]
             );
             if (userDocs.documents.length === 0) throw new Error("Utilisateur non trouvé");
@@ -49,8 +46,8 @@ export const usersService = {
             const userDoc = userDocs.documents[0];
 
             const updatedUser = await databases.updateDocument<User>(
-                DATABASE_ID,
-                COLLECTION_ID,
+                `${process.env.APPWRITE_DATABASEID}`,
+                `${process.env.APPWRITE_DATABASE_USERSID}`,
                 userDoc.$id,
                 {
                     firstname: finalData.firstname,

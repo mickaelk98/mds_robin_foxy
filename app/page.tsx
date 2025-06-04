@@ -7,6 +7,7 @@ import { Category } from "@/app/components/category";
 import { Testinonials } from "@/app/components/testimonials";
 
 export default function Home() {
+  console.log("les variables d'environnement sont:", process.env.APPWRITE_ENDPOINT);
   return (
     <>
       <Header />

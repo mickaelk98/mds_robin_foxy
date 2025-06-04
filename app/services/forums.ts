@@ -13,8 +13,8 @@ export const forumsService = {
 
 
             const forums = await databases.listDocuments<Forum>(
-                "682c1698002f2b240161",
-                "683c9b3b000fa3756127",
+                `${process.env.APPWRITE_DATABASEID}`,
+                `${process.env.APPWRITE_DATABASE_FORUMSID}`,
             );
 
             if (forums.documents.length === 0) return null;
@@ -29,16 +29,16 @@ export const forumsService = {
 export const messagesService = {
     async getMessagesByForumId(forumId: string): Promise<Message[]> {
         const res = await databases.listDocuments<Message>(
-            "682c1698002f2b240161", // databaseId
-            "683cccbc00173d49fc18", // collectionId messages (à adapter si besoin)
+            `${process.env.APPWRITE_DATABASEID}`,
+            `${process.env.APPWRITE_DATABASE_MESSAGESID}`,
             [Query.equal("forumId", forumId), Query.orderDesc("$createdAt")]
         );
         return res.documents.reverse();
     },
     async sendMessage({ forumId, userId, content }: { forumId: string; userId: string; content: string; }) {
         return databases.createDocument(
-            "682c1698002f2b240161",
-            "683cccbc00173d49fc18",
+            `${process.env.APPWRITE_DATABASEID}`,
+            `${process.env.APPWRITE_DATABASE_MESSAGESID}`,
             ID.unique(),
             { forumId, userId, content }
         );
@@ -46,7 +46,7 @@ export const messagesService = {
     subscribeToMessages(forumId: string, cb: (msg: Message) => void) {
         return client.subscribe(
             [
-                `databases.682c1698002f2b240161.collections.683cccbc00173d49fc18.documents`
+                `databases.${process.env.APPWRITE_DATABASEID}.collections.${process.env.APPWRITE_DATABASE_MESSAGESID}.documents`
             ],
             (response) => {
                 const payload = response.payload as Message;

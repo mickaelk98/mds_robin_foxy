@@ -3,8 +3,8 @@ import OpenAI from "openai";
 import type { ChatMessage, ChatResponse } from "@/app/interfaces/chat";
 
 const openai = new OpenAI({
-    baseURL: 'https://api.deepseek.com',
-    apiKey: 'sk-baed47da36a041cfa885bd2de7537f20',
+    baseURL: process.env.DEEPSEEK_API_URL,
+    apiKey: process.env.DEEPSEEK_API_KEY,
 });
 
 export async function POST(req: NextRequest) {
