@@ -37,8 +37,8 @@ export const usersService = {
             const accountData = await account.get();
 
             const userDocs = await databases.listDocuments<User>(
-                `${process.env.APPWRITE_DATABASEID}`,
-                `${process.env.APPWRITE_DATABASE_USERSID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_USERSID}`,
                 [Query.equal("accountId", accountData.$id)]
             );
             if (userDocs.documents.length === 0) throw new Error("Utilisateur non trouvé");
@@ -46,8 +46,8 @@ export const usersService = {
             const userDoc = userDocs.documents[0];
 
             const updatedUser = await databases.updateDocument<User>(
-                `${process.env.APPWRITE_DATABASEID}`,
-                `${process.env.APPWRITE_DATABASE_USERSID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_USERSID}`,
                 userDoc.$id,
                 {
                     firstname: finalData.firstname,

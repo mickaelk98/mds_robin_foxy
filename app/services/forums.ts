@@ -13,8 +13,8 @@ export const forumsService = {
 
 
             const forums = await databases.listDocuments<Forum>(
-                `${process.env.APPWRITE_DATABASEID}`,
-                `${process.env.APPWRITE_DATABASE_FORUMSID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_FORUMSID}`,
             );
 
             if (forums.documents.length === 0) return null;
@@ -29,16 +29,16 @@ export const forumsService = {
 export const messagesService = {
     async getMessagesByForumId(forumId: string): Promise<Message[]> {
         const res = await databases.listDocuments<Message>(
-            `${process.env.APPWRITE_DATABASEID}`,
-            `${process.env.APPWRITE_DATABASE_MESSAGESID}`,
+            `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+            `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_MESSAGESID}`,
             [Query.equal("forumId", forumId), Query.orderDesc("$createdAt")]
         );
         return res.documents.reverse();
     },
     async sendMessage({ forumId, userId, content }: { forumId: string; userId: string; content: string; }) {
         return databases.createDocument(
-            `${process.env.APPWRITE_DATABASEID}`,
-            `${process.env.APPWRITE_DATABASE_MESSAGESID}`,
+            `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+            `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_MESSAGESID}`,
             ID.unique(),
             { forumId, userId, content }
         );
@@ -46,7 +46,7 @@ export const messagesService = {
     subscribeToMessages(forumId: string, cb: (msg: Message) => void) {
         return client.subscribe(
             [
-                `databases.${process.env.APPWRITE_DATABASEID}.collections.${process.env.APPWRITE_DATABASE_MESSAGESID}.documents`
+                `databases.${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}.collections.${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_MESSAGESID}.documents`
             ],
             (response) => {
                 const payload = response.payload as Message;

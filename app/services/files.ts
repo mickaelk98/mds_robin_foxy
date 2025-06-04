@@ -20,8 +20,8 @@ export const usersService = {
     async getAllfiles(): Promise<Files[]> {
         try {
             const result = await databases.listDocuments<Files>(
-                `${process.env.APPWRITE_DATABASEID}`,
-                `${process.env.APPWRITE_DATABASE_FILESID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+                `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_FILESID}`,
             );
             // result.documents est un tableau de tes documents typés Files
             return result.documents;

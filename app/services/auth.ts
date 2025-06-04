@@ -32,8 +32,8 @@ export const authService = {
 
       // Typer explicitement comme User
       const userDoc = await databases.createDocument<User>(
-        `${process.env.APPWRITE_DATABASEID}`,
-        `${process.env.APPWRITE_DATABASE_USERSID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_USERSID}`,
         ID.unique(),
         {
           accountId: response.$id,
@@ -61,8 +61,8 @@ export const authService = {
 
 
       const userDoc = await databases.listDocuments<User>(
-        `${process.env.APPWRITE_DATABASEID}`,
-        `${process.env.APPWRITE_DATABASE_USERSID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_USERSID}`,
         [Query.equal('accountId', accountData.$id)]
       );
 
@@ -92,17 +92,19 @@ export const authService = {
 
       if (!accountData) return null;
 
-
       const userDoc = await databases.listDocuments<User>(
-        `${process.env.APPWRITE_DATABASEID}`,
-        `${process.env.APPWRITE_DATABASE_USERSID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASEID}`,
+        `${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_USERSID}`,
         [Query.equal('accountId', accountData.$id)]
       );
+
+      console.log('userDoc dans service auth:', userDoc);
 
       if (userDoc.documents.length === 0) return null;
 
       return userDoc.documents[0];
-    } catch {
+    } catch (error) {
+      console.log('erreur dans service auth:', error);
       return null;
     }
   },
