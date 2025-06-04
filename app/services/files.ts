@@ -1,0 +1,34 @@
+import { databases } from "@/app/lib/appwrite";
+import { AppwriteException } from "appwrite";
+import type { Files } from "@/app/interfaces/files";
+
+function getErrorMessage(error: unknown): string {
+    if (error instanceof AppwriteException) {
+        return error.message;
+    }
+    if (error instanceof Error) {
+        return error.message;
+    }
+    if (error && typeof error === 'object' && 'message' in error) {
+        return String(error.message);
+    }
+    return 'Une erreur inattendue s\'est produite';
+}
+
+const DATABASE_ID = "682c1698002f2b240161";
+const COLLECTION_ID = "683fcf9c000718b03db0";
+
+export const usersService = {
+    async getAllfiles(): Promise<Files[]> {
+        try {
+            const result = await databases.listDocuments<Files>(
+                DATABASE_ID,
+                COLLECTION_ID
+            );
+            // result.documents est un tableau de tes documents typés Files
+            return result.documents;
+        } catch (error: unknown) {
+            throw new Error(getErrorMessage(error) || "Erreur lors de la récupération des fichiers");
+        }
+    }
+};
