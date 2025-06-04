@@ -33,6 +33,9 @@ export function DesktopHeader() {
           {!user && <li className="cursor-pointer border-b-4 border-[var(--green-200)] hover:border-[var(--orange-200)] hover:font-bold">
             <Link href="/signup">Inscription</Link>
           </li>}
+          {user && <li className="cursor-pointer border-b-4 border-[var(--green-200)] hover:border-[var(--orange-200)] hover:font-bold">
+            <Link href="/profil">Profil</Link>
+          </li>}
           <li className="cursor-pointer border-b-4 border-[var(--green-200)] hover:border-[var(--orange-200)] hover:font-bold">
             <Link href="shops">Boutiques</Link>
           </li>

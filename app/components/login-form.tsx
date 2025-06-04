@@ -9,11 +9,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuthStore } from "@/app/lib/stores/auth-store";
 import Link from "next/link";
 import getErrorMessage from "@/app/lib/error-handler";
+import { useRouter } from "next/navigation";
+
 
 export function LoginForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>('');
     const { setUser } = useAuthStore();
+    const router = useRouter();
 
     const {
         register,
@@ -37,6 +40,7 @@ export function LoginForm() {
 
                 console.log('Connexion réussie:', result);
                 setUser(result);
+                router.push('/');
 
             }
         } catch (err: unknown) {
