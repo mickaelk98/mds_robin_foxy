@@ -4,7 +4,7 @@ import { forumsService } from "../services/forums";
 import { ForumCard } from "../components/forum-card";
 import Image from "next/image";
 import people from "@/app/assets/forum-people.png";
-
+import { ChatBox } from "@/app/components/chat-box"
 
 
 
@@ -24,6 +24,7 @@ export default async function Forum() {
                     <ForumCard key={forum.$id} forumId={forum.$id} title={forum.title} description={forum.description} image={forum.image} i={i} />
                 ))}
             </div>
+            <ChatBox />
             <Footer />
         </div>
     );
