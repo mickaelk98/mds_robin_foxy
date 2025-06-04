@@ -43,3 +43,7 @@ next-env.d.ts
 text.txt
 
 .cursorrules
+# Sentry Config File
+.env.sentry-build-plugin
+
+/app/sentry-example-page
