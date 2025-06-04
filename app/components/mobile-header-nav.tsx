@@ -22,6 +22,7 @@ export function MobileHeaderNav({ closeNav }: Props) {
       <ul className="w-full h-full flex flex-col items-center justify-center">
         {user && <li><Link href="/files"><MobileNavItem>fiches</MobileNavItem></Link></li>}
         {user && <li><Link href="/forum"><MobileNavItem>forum</MobileNavItem></Link></li>}
+        {user && <li><Link href="/profil"><MobileNavItem>profil</MobileNavItem></Link></li>}
         <li><Link href="/faq"><MobileNavItem>faq</MobileNavItem></Link></li>
         {!user && <li><Link href="/signup"><MobileNavItem>inscription</MobileNavItem></Link></li>}
         {!user && <li><Link href="/login"><MobileNavItem>connexion</MobileNavItem></Link></li>}
