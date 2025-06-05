@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import { useAuthStore } from "@/app/lib/stores/auth-store";
 import { useMessageStore } from "@/app/lib/stores/message-store";
-import { messagesService, forumsService } from "@/app/services/forums";
+import { forumsService } from "@/app/services/forums";
+import { messagesService } from "@/app/services/message";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
 import Image from "next/image";
@@ -13,7 +14,6 @@ import { ArrowBigLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 const chewy = Chewy({ subsets: ["latin"], weight: ["400"] });
-
 export default function ForumChatPage() {
     const { forumId } = useParams();
     const { user } = useAuthStore();
@@ -23,7 +23,6 @@ export default function ForumChatPage() {
     const bottomRef = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState(true);
     const router = useRouter();
-
     // Récupère le forum
     useEffect(() => {
         async function fetchForum() {
@@ -33,7 +32,6 @@ export default function ForumChatPage() {
         }
         fetchForum();
     }, [forumId]);
-
     // Récupère les messages
     useEffect(() => {
         if (!forumId) return;
@@ -52,19 +50,16 @@ export default function ForumChatPage() {
         };
         // eslint-disable-next-line
     }, [forumId, setMessages, addMessage, clearMessages]);
-
     // Scroll auto
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);
-
     // Envoi message
     const sendMessage = async () => {
         if (!content.trim() || !user) return;
         await messagesService.sendMessage({ forumId: forumId as string, userId: user.id || user.$id, content });
         setContent("");
     };
-
     return (
         <div className="flex flex-col h-screen bg-[var(--orange-100)]">
             {/* Header forum */}
@@ -115,4 +110,4 @@ export default function ForumChatPage() {
             </form>
         </div>
     );
-} 
+}
