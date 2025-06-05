@@ -221,7 +221,7 @@ export default function CGUPage() {
 
             <main className="container mx-auto px-4 py-8 max-w-4xl">
                 <h1 className="text-3xl md:text-4xl font-bold text-center mb-8 bg-white p-4 rounded-lg shadow">
-                    CONDITIONS GÉNÉRALES D&apos;UTILISATION (CGU)
+                    Mentions légales
                 </h1>
 
                 <p className="text-center text-gray-600 mb-8">
