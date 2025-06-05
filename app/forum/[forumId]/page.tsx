@@ -9,6 +9,8 @@ import { Button } from "@/app/components/ui/button";
 import Image from "next/image";
 import { Chewy } from "next/font/google";
 import type { Forum } from "@/app/interfaces/forum";
+import { ArrowBigLeft } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const chewy = Chewy({ subsets: ["latin"], weight: ["400"] });
 
@@ -20,6 +22,7 @@ export default function ForumChatPage() {
     const [content, setContent] = useState("");
     const bottomRef = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     // Récupère le forum
     useEffect(() => {
@@ -65,12 +68,15 @@ export default function ForumChatPage() {
     return (
         <div className="flex flex-col h-screen bg-[var(--orange-100)]">
             {/* Header forum */}
-            <div className="flex items-center gap-4 p-4 bg-white shadow">
-                {forum?.image && <Image src={forum.image} alt={forum.title} width={50} height={50} className="rounded-full" />}
-                <div>
-                    <h2 className={`font-bold text-xl ${chewy.className}`}>{forum?.title}</h2>
-                    <p className="text-sm text-gray-500">{forum?.description}</p>
+            <div className="flex items-center flex-col md:flex-row justify-between gap-2 p-4 bg-white shadow">
+                <div className="flex items-center justify-between gap-4" >
+                    {forum?.image && <Image src={forum.image} alt={forum.title} width={50} height={50} className="rounded-full" />}
+                    <div>
+                        <h2 className={`font-bold text-xl ${chewy.className}`}>{forum?.title}</h2>
+                        <p className="text-sm text-gray-500">{forum?.description}</p>
+                    </div>
                 </div>
+                <ArrowBigLeft onClick={() => router.push("/forum")} className="self-end text-[var(--orange-200)] cursor-pointer" size={40} />
             </div>
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-2 flex flex-col">
