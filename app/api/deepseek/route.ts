@@ -9,6 +9,7 @@ const openai = new OpenAI({
 
 export async function POST(req: NextRequest) {
     try {
+        console.log("mes clefs", process.env.DEEPSEEK_API_KEY, process.env.DEEPSEEK_API_URL);
         const body = await req.json();
         const { messages } = body as { messages: ChatMessage[] };
 

@@ -44,6 +44,7 @@ export function ChatBox() {
             });
 
             if (!res.ok) {
+                console.error("Erreur lors de la réponse:", res);
                 throw new Error(`Erreur HTTP: ${res.status}`);
             }
 
