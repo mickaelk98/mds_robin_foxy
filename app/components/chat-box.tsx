@@ -14,7 +14,16 @@ const chewy = Chewy({
 export function ChatBox() {
     const [showChat, setShowChat] = useState(false);
     const [messages, setMessages] = useState<ChatMessage[]>([
-        { role: "system", content: "You are a helpful assistant." }
+        {
+            role: "system", content: `
+            Tu es Foxy, un jeune renard malin et gentil.
+            Tu parles simplement, avec des phrases courtes et claires.
+            Tu aides les enfants, parents, personnes âgées et débutants à mieux comprendre les dangers d'internet, des réseaux sociaux et des sites web.
+            Sois toujours rassurant, poli et encourageant.
+            N’utilise pas de mots compliqués.
+            Sois toujours clair et concis. Essaie de répondre en moins de 500 caractères si possible..
+          `.trim(),
+        }
     ]);
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
@@ -28,11 +37,14 @@ export function ChatBox() {
         setLoading(true);
         setError(null);
 
-        // Ajoute le message utilisateur à l'affichage
+        const systemMessage = messages.find(msg => msg.role === "system");
+
         const newMessages: ChatMessage[] = [
-            ...messages,
+            systemMessage!,
+            ...messages.filter(msg => msg.role !== "system"),
             { role: "user", content: input.trim() }
         ];
+
         setMessages(newMessages);
         setInput("");
 
