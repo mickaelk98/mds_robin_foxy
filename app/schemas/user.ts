@@ -1,6 +1,6 @@
 // schemas/auth.ts
 import { z } from "zod";
-import { UserType } from "@/app/interfaces/user";
+import { UserType } from "@/interfaces/user";
 
 // Schéma pour l'inscription
 export const registerSchema = z

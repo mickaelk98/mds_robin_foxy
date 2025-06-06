@@ -1,7 +1,7 @@
-import { account, ID, databases } from "@/app/lib/appwrite";
+import { account, ID, databases } from "../lib/appwrite";
 import { Query } from "appwrite";
-import type { RegisterFormData, LoginFormData } from "@/app/schemas";
-import type { User, LoginErrorMessage } from "@/app/interfaces";
+import type { RegisterFormData, LoginFormData } from "../schemas";
+import type { User, LoginErrorMessage } from "../interfaces";
 import { AppwriteException } from "appwrite"
 
 
