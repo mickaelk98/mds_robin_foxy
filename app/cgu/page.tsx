@@ -17,7 +17,7 @@ const sections: Section[] = [
         id: "objet",
         title: "1. OBJET",
         content: [
-            "Les présentes Conditions Générales d&apos;Utilisation (CGU) régissent l&apos;utilisation de la plateforme FoxyRobin accessible à l&apos;adresse foxyrobin.fr, développée dans le cadre d&apos;un projet éducatif visant à sensibiliser et aider à lutter contre les dangers d&apos;Internet et des réseaux sociaux."
+            "Les présentes Conditions Générales d' Utilisation (CGU) régissent l' utilisation de la plateforme FoxyRobin accessible à l' adresse foxyrobin.fr, développée dans le cadre d' un projet éducatif visant à sensibiliser et aider à lutter contre les dangers d' Internet et des réseaux sociaux."
         ]
     },
     {
@@ -25,7 +25,7 @@ const sections: Section[] = [
         title: "2. PRÉSENTATION DU SERVICE",
         content: [
             "Notre plateforme propose :",
-            "• Un système d&apos;authentification sécurisé",
+            "• Un système d' authentification sécurisé",
             "• Un système de messagerie entre utilisateurs",
             "• Des chatbox de discussion",
             "• Une carte interactive de France par région avec localisation de boutiques",
@@ -36,17 +36,17 @@ const sections: Section[] = [
         id: "acceptation",
         title: "3. ACCEPTATION DES CONDITIONS",
         content: [
-            "L&apos;utilisation de notre plateforme implique l&apos;acceptation pleine et entière des présentes CGU. Si vous n&apos;acceptez pas ces conditions, vous ne devez pas utiliser notre service."
+            "L'utilisation de notre plateforme implique l' acceptation pleine et entière des présentes CGU. Si vous n' acceptez pas ces conditions, vous ne devez pas utiliser notre service."
         ]
     },
     {
         id: "inscription",
         title: "4. INSCRIPTION ET COMPTE UTILISATEUR",
         content: [
-            "4.1 Conditions d&apos;inscription",
-            "• L&apos;inscription est gratuite et ouverte à toute personne physique majeure",
-            "• Les mineurs doivent obtenir l&apos;autorisation de leurs représentants légaux",
-            "• Les informations fournies lors de l&apos;inscription doivent être exactes et à jour",
+            "4.1 Conditions d' inscription",
+            "• L' inscription est gratuite et ouverte à toute personne physique majeure",
+            "• Les mineurs doivent obtenir l' autorisation de leurs représentants légaux",
+            "• Les informations fournies lors de l' inscription doivent être exactes et à jour",
             "",
             "4.2 Responsabilité du compte",
             "• Vous êtes responsable de la confidentialité de vos identifiants",
@@ -59,7 +59,7 @@ const sections: Section[] = [
         title: "5. UTILISATION DU SERVICE",
         content: [
             "5.1 Usage autorisé",
-            "Notre plateforme doit être utilisée conformément à sa vocation éducative et préventive. Les utilisateurs s&apos;engagent à :",
+            "Notre plateforme doit être utilisée conformément à sa vocation éducative et préventive. Les utilisateurs s' engagent à :",
             "• Respecter les autres utilisateurs",
             "• Ne pas diffuser de contenu illégal, offensant ou inapproprié",
             "• Ne pas utiliser le service à des fins commerciales non autorisées",
@@ -68,11 +68,11 @@ const sections: Section[] = [
             "5.2 Interdictions",
             "Il est strictement interdit de :",
             "• Publier des contenus à caractère haineux, discriminatoire ou violent",
-            "• Harceler ou intimider d&apos;autres utilisateurs",
-            "• Diffuser des informations personnelles d&apos;autrui sans autorisation",
+            "• Harceler ou intimider d' autres utilisateurs",
+            "• Diffuser des informations personnelles d' autrui sans autorisation",
             "• Tenter de contourner les mesures de sécurité",
             "• Utiliser des robots ou scripts automatisés",
-            "• Créer de faux comptes ou usurper l&apos;identité d&apos;autrui"
+            "• Créer de faux comptes ou usurper l' identité d' autrui"
         ]
     },
     {
@@ -86,7 +86,7 @@ const sections: Section[] = [
             "",
             "6.2 Confidentialité des messages",
             "• Vos messages privés ne sont pas lus par nos équipes sauf signalement",
-            "• Nous nous réservons le droit d&apos;intervenir en cas de comportement abusif",
+            "• Nous nous réservons le droit d' intervenir en cas de comportement abusif",
             "• Les messages peuvent être conservés pour des raisons de sécurité"
         ]
     },
@@ -96,12 +96,12 @@ const sections: Section[] = [
         content: [
             "7.1 Utilisation des données",
             "• Les informations de localisation des boutiques sont fournies à titre informatif",
-            "• Nous ne garantissons pas l&apos;exactitude de ces informations",
+            "• Nous ne garantissons pas l' exactitude de ces informations",
             "• Les utilisateurs sont invités à vérifier les informations avant tout déplacement",
             "",
             "7.2 Responsabilité",
             "• Nous ne sommes pas responsables des services fournis par les boutiques référencées",
-            "• Les transactions éventuelles se font directement entre l&apos;utilisateur et la boutique"
+            "• Les transactions éventuelles se font directement entre l' utilisateur et la boutique"
         ]
     },
     {
@@ -109,13 +109,13 @@ const sections: Section[] = [
         title: "8. PROPRIÉTÉ INTELLECTUELLE",
         content: [
             "8.1 Contenu de la plateforme",
-            "• Tous les contenus de la plateforme sont protégés par le droit d&apos;auteur",
+            "• Tous les contenus de la plateforme sont protégés par le droit d' auteur",
             "• Toute reproduction sans autorisation est interdite",
             "• Les logos et marques sont la propriété de leurs détenteurs respectifs",
             "",
             "8.2 Contenu utilisateur",
             "• Vous conservez la propriété de vos contenus",
-            "• Vous accordez une licence d&apos;utilisation pour l&apos;affichage sur la plateforme",
+            "• Vous accordez une licence d' utilisation pour l' affichage sur la plateforme",
             "• Nous pouvons supprimer tout contenu non conforme"
         ]
     },
@@ -126,7 +126,7 @@ const sections: Section[] = [
             "Conformément au RGPD, nous nous engageons à :",
             "• Protéger vos données personnelles",
             "• Ne pas les vendre à des tiers",
-            "• Vous permettre d&apos;exercer vos droits (accès, rectification, suppression)",
+            "• Vous permettre d' exercer vos droits (accès, rectification, suppression)",
             "• Ne collecter que les données nécessaires au fonctionnement du service"
         ]
     },
@@ -136,7 +136,7 @@ const sections: Section[] = [
         content: [
             "10.1 Modération",
             "• Nous nous réservons le droit de modérer tous les contenus",
-            "• Les signalements d&apos;utilisateurs sont traités dans les meilleurs délais",
+            "• Les signalements d' utilisateurs sont traités dans les meilleurs délais",
             "• Nous pouvons supprimer tout contenu non conforme",
             "",
             "10.2 Sanctions",
@@ -152,13 +152,13 @@ const sections: Section[] = [
         title: "11. RESPONSABILITÉ ET GARANTIES",
         content: [
             "11.1 Limitation de responsabilité",
-            "• Le service est fourni &quot;en l&apos;état&quot;",
-            "• Nous ne garantissons pas l&apos;absence d&apos;interruptions",
+            "• Le service est fourni &quot;en l' état&quot;",
+            "• Nous ne garantissons pas l' absence d' interruptions",
             "• Nous ne sommes pas responsables des dommages indirects",
             "• Notre responsabilité est limitée au cadre légal applicable",
             "",
             "11.2 Disponibilité du service",
-            "• Nous nous efforçons d&apos;assurer une disponibilité maximale",
+            "• Nous nous efforçons d' assurer une disponibilité maximale",
             "• Des maintenances peuvent interrompre temporairement le service",
             "• Nous ne garantissons pas une disponibilité de 100%"
         ]
@@ -169,14 +169,14 @@ const sections: Section[] = [
         content: [
             "• Nous nous réservons le droit de modifier ces CGU à tout moment",
             "• Les modifications seront notifiées aux utilisateurs",
-            "• La poursuite de l&apos;utilisation vaut acceptation des nouvelles conditions"
+            "• La poursuite de l' utilisation vaut acceptation des nouvelles conditions"
         ]
     },
     {
         id: "resiliation",
         title: "13. RÉSILIATION",
         content: [
-            "13.1 Résiliation par l&apos;utilisateur",
+            "13.1 Résiliation par l' utilisateur",
             "• Vous pouvez supprimer votre compte à tout moment",
             "• La suppression entraîne la perte définitive de vos données",
             "",
@@ -199,8 +199,8 @@ const sections: Section[] = [
         title: "15. CONTACT",
         content: [
             "Pour toute question concernant ces CGU :",
-            "Email : contact@foxyrobin.fr",
-            "Adresse : 123 rue de l&apos;Innovation, 75000 Paris"
+            "Email : foxyetrobin@gmail.com",
+            "Adresse : 40 Rue du Chemin Vert, 75011 Paris"
         ]
     }
 ];
