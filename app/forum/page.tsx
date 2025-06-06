@@ -5,7 +5,12 @@ import { ForumCard } from "../components/forum-card";
 import Image from "next/image";
 import people from "@/app/assets/forum-people.png";
 import { ChatBox } from "@/app/components/chat-box"
+import { Chewy } from "next/font/google";
 
+const chewy = Chewy({
+    subsets: ["latin"],
+    weight: ["400"],
+});
 
 
 export default async function Forum() {
@@ -18,7 +23,7 @@ export default async function Forum() {
             <div className="flex flex-col items-center jusify-center">
                 <Image className="hidden xl:block" src={people} alt="Foxy logo" width={400} height={300} />
             </div>
-            <h1 className="bg-white text-2xl lg:text-4xl xl:text-5xl font-bold uppercase p-2 rounded-[20px] border-2 border-black inline-block text-wrap mt-10 mb-20 self-end rotate-12 mr-2">Forum de discussions</h1>
+            <h1 className={`${chewy.className} bg-white text-2xl lg:text-4xl xl:text-5xl font-bold uppercase p-2 rounded-[20px] border-2 border-black inline-block text-wrap mt-10 mb-20 self-end rotate-12 mr-2`}>Forum de discussions</h1>
             <div className="bg-[var(--blue-100)] rounded-[100px] p-2 flex flex-col gap-10 w-[90%] max-w-[1000px] mx-auto py-20">
                 {forum?.map((forum, i) => (
                     <ForumCard key={forum.$id} forumId={forum.$id} title={forum.title} description={forum.description} image={forum.image} i={i} />

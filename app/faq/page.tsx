@@ -109,9 +109,15 @@ export default function FAQ() {
                 <section className="w-full flex flex-col items-center py-10 bg-[var(--orange-200)]">
                     <h2 className={`text-3xl md:text-4xl font-bold my-8 bg-white py-2 px-6 rounded-[50px] border-2 border-black -rotate-12 self-end xl:self-center ${chewy.className}`}>Contacts</h2>
                     <div className="bg-[var(--green-200)] rounded-[15px] shadow-md p-8 flex flex-col gap-4 w-[90%] max-w-xl self-end">
-                        <div className="flex gap-2  ">
-                            <span className="font-bold text-xl lg:text-3xl">Email:</span>
-                            <span className="text-xl lg:text-2xl">foxyetrobin@gmail.com</span>
+                        <div className="flex flex-col gap-2  ">
+                            <div className="flex gap-2 items-center">
+                                <span className="font-bold text-xl lg:text-3xl">Email:</span>
+                                <span className="text-xl lg:text-2xl">foxyetrobin@gmail.com</span>
+                            </div>
+                            <div className="flex gap-2 items-center">
+                                <span className="font-bold text-xl lg:text-3xl">Adresse:</span>
+                                <span className="text-xl lg:text-2xl">40 Rue du Chemin Vert, 75011 Paris</span>
+                            </div>
                         </div>
                     </div>
                 </section>
