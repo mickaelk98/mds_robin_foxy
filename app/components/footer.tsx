@@ -31,8 +31,9 @@ export function Footer() {
                 >
                   contact
                 </h3>
-                <ul className="text-center">
+                <ul className="text-center flex flex-col gap-2 text-xl">
                   <li>foxyetrobin@gmail.com</li>
+                  <li>40 Rue du Chemin Vert, 75011 Paris</li>
                 </ul>
               </div>
               {/* fin contact */}
@@ -47,6 +48,7 @@ export function Footer() {
                 <ul className="flex gap-5 md:flex-col items-center justify-center">
                   <li className="flex flex-col md:flex-row items-center gap-1">
                     <Link
+                      className="flex flex-col items-center gap-2"
                       href="https://www.instagram.com/foxy_robin_/profilecard/"
                       target="_blank"
                     >
@@ -58,8 +60,9 @@ export function Footer() {
                       <span>@foxy_robin_</span>
                     </Link>
                   </li>
-                  <li className="flex flex-col md:flex-row items-center  gap-2">
+                  <li className="flex flex-col md:flex-row items-center gap-2">
                     <Link
+                      className="flex flex-col items-center gap-2"
                       target="_blank"
                       href="https://www.facebook.com/people/Roxy-Robin/61576403632725/?mibextid=wwXIfr&rdid=88nPvNCucPJvpGs0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18qCvs91Go%2F%3Fmibextid%3DwwXIfr"
                     >
@@ -83,11 +86,21 @@ export function Footer() {
                   autres
                 </h3>
                 <ul className="text-center flex flex-col gap-2 text-xl">
-                  <li>Faq</li>
-                  <li>Nos boutiques</li>
-                  <li>Mentions légales</li>
-                  <li>À propos de Foxy</li>
-                  <li>Assistance</li>
+                  <li>
+                    <Link href="/faq">Faq</Link>
+                  </li>
+                  <li>
+                    <Link href="/shops">Nos boutiques</Link>
+                  </li>
+                  <li>
+                    <Link href="/cgu">Mentions légales</Link>
+                  </li>
+                  <li>
+                    <Link href="/">À propos de Foxy</Link>
+                  </li>
+                  <li>
+                    <Link href="/forum">Assistance</Link>
+                  </li>
                 </ul>
               </div>
               {/* fin autre */}
